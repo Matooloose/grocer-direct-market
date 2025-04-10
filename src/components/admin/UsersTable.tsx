@@ -89,9 +89,9 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, searchQuery }) => {
                     <TableRow key={user.id}>
                       <TableCell>
                         <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden">
-                          {user.avatar ? (
+                          {user.imageUrl ? (
                             <img 
-                              src={user.avatar} 
+                              src={user.imageUrl} 
                               alt={user.name} 
                               className="w-full h-full object-cover" 
                             />
@@ -110,7 +110,7 @@ const UsersTable: React.FC<UsersTableProps> = ({ users, searchQuery }) => {
                         </span>
                       </TableCell>
                       <TableCell>
-                        {new Date(user.joinedDate).toLocaleDateString()}
+                        {new Date(user.createdAt).toLocaleDateString()}
                       </TableCell>
                       <TableCell className="text-right">
                         <div className="flex justify-end space-x-2">

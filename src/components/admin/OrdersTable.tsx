@@ -91,7 +91,7 @@ const OrdersTable: React.FC<OrdersTableProps> = ({ orders, searchQuery }) => {
                     <TableRow key={order.id}>
                       <TableCell className="font-medium">#{order.id}</TableCell>
                       <TableCell>{order.user.name}</TableCell>
-                      <TableCell>{new Date(order.date).toLocaleDateString()}</TableCell>
+                      <TableCell>{new Date(order.createdAt).toLocaleDateString()}</TableCell>
                       <TableCell>
                         <span className={`px-2 py-1 text-xs rounded-full ${getStatusBadgeClass(order.status)}`}>
                           {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
