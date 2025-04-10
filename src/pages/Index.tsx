@@ -1,13 +1,41 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import PageLayout from '@/components/layout/PageLayout';
+import Hero from '@/components/home/Hero';
+import FeaturedProducts from '@/components/home/FeaturedProducts';
+import CategoryHighlights from '@/components/home/CategoryHighlights';
+import HowItWorks from '@/components/home/HowItWorks';
+import FarmerHighlight from '@/components/home/FarmerHighlight';
+import Testimonials from '@/components/home/Testimonials';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <PageLayout>
+      <Hero />
+      <FeaturedProducts />
+      <CategoryHighlights />
+      <HowItWorks />
+      <FarmerHighlight />
+      <Testimonials />
+      
+      {/* Call to Action */}
+      <section className="py-16 bg-market-primary">
+        <div className="market-container text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to start shopping?</h2>
+          <p className="text-white/90 max-w-2xl mx-auto mb-8">
+            Browse our selection of fresh, locally-sourced products and support farmers in your community.
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="bg-white text-market-primary hover:bg-white/90"
+          >
+            <Link to="/products">Shop Now</Link>
+          </Button>
+        </div>
+      </section>
+    </PageLayout>
   );
 };
 
