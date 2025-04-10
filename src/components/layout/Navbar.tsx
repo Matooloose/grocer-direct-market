@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Search, ShoppingCart, Menu, X, User } from "lucide-react";
+import { Search, ShoppingCart, Menu, X, User, BracketSquare, ArrowLeft } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,8 +30,15 @@ const Navbar = () => {
           {/* Logo and brand */}
           <div className="flex items-center space-x-2">
             <Link to="/" className="flex items-center">
-              <span className="text-market-primary text-2xl font-bold font-poppins">Grocer</span>
-              <span className="text-market-secondary text-2xl font-bold font-poppins">Direct</span>
+              <div className="flex items-center">
+                <BracketSquare className="h-6 w-6 text-market-primary mr-1" />
+                <span className="text-market-dark text-xl font-bold font-poppins">farmers</span>
+                <span className="text-market-primary text-xl font-bold font-poppins">bracket</span>
+              </div>
+              <div className="flex items-center ml-2 text-xs text-market-brown">
+                <ArrowLeft className="h-3 w-3 mr-1" />
+                <span>shop left</span>
+              </div>
             </Link>
           </div>
 
