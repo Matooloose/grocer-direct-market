@@ -8,6 +8,7 @@ import FarmerHighlight from '@/components/home/FarmerHighlight';
 import Testimonials from '@/components/home/Testimonials';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { ShoppingCart, Images } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -26,13 +27,30 @@ const Index = () => {
           <p className="text-white/90 max-w-2xl mx-auto mb-8">
             Browse our selection of fresh, locally-sourced products and support farmers in your community.
           </p>
-          <Button
-            asChild
-            size="lg"
-            className="bg-white text-market-primary hover:bg-white/90"
-          >
-            <Link to="/products">Shop Now</Link>
-          </Button>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-market-primary hover:bg-white/90"
+            >
+              <Link to="/products">
+                <ShoppingCart className="h-5 w-5 mr-2" />
+                Shop Now
+              </Link>
+            </Button>
+            
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
+              <Link to="/gallery">
+                <Images className="h-5 w-5 mr-2" />
+                Image Gallery
+              </Link>
+            </Button>
+          </div>
         </div>
       </section>
     </PageLayout>
