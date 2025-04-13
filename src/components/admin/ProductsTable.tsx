@@ -18,8 +18,9 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 import { Button } from '@/components/ui/button';
-import { Edit, Trash, Eye } from 'lucide-react';
+import { Edit, Trash, Eye, ImageIcon } from 'lucide-react';
 import { Product } from '@/types/models';
+import { Link } from 'react-router-dom';
 
 interface ProductsTableProps {
   products: Product[];
@@ -51,7 +52,15 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products, searchQuery }) 
           <CardTitle>Product Management</CardTitle>
           <CardDescription>View and manage all products</CardDescription>
         </div>
-        <Button className="bg-market-primary hover:bg-market-primary/90">Add Product</Button>
+        <div className="flex space-x-2">
+          <Button className="bg-market-primary hover:bg-market-primary/90">Add Product</Button>
+          <Button variant="outline" asChild>
+            <Link to="/admin/images">
+              <ImageIcon className="mr-2 h-4 w-4" />
+              Manage Images
+            </Link>
+          </Button>
+        </div>
       </CardHeader>
       <CardContent>
         {currentProducts.length === 0 ? (

@@ -88,3 +88,12 @@ export interface Review {
   comment: string;
   createdAt: Date;
 }
+
+export interface Image {
+  id: string;
+  url: string;
+  name: string;
+  category: string;
+  uploadedAt: Date;
+  size: string;
+}
