@@ -106,7 +106,7 @@ const mockConversations: Conversation[] = [
         id: 'msg5',
         from: 'farmer',
         userName: 'Green Valley Farm',
-        content: 'Wonderful! We\'re glad everything arrived safely. Enjoy your farm-fresh products!',
+        content: "Wonderful! We're glad everything arrived safely. Enjoy your farm-fresh products!",
         timestamp: new Date('2023-06-09T15:00:00'),
         isRead: true,
       },
