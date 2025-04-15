@@ -606,13 +606,12 @@ const OrdersManagement = () => {
   );
 };
 
-const OrdersTable = ({ 
-  orders, 
-  onUpdateStatus 
-}: { 
-  orders: Order[], 
-  onUpdateStatus: (id: string, newStatus: OrderStatus) => void 
-}) => {
+interface OrdersTableProps {
+  orders: Order[];
+  onUpdateStatus: (id: string, newStatus: OrderStatus) => void;
+}
+
+const OrdersTable = ({ orders, onUpdateStatus }: OrdersTableProps) => {
   const getStatusBadge = (status: OrderStatus) => {
     switch (status) {
       case 'pending':
@@ -672,8 +671,8 @@ const OrdersTable = ({
                       </Button>
                     </DialogTrigger>
                     <OrderDetailDialog 
-                      order={order} 
-                      onUpdateStatus={onUpdateStatus} 
+                      order={order}
+                      onUpdateStatus={onUpdateStatus}
                     />
                   </Dialog>
                 </TableCell>
@@ -682,7 +681,7 @@ const OrdersTable = ({
           ) : (
             <TableRow>
               <TableCell colSpan={7} className="text-center py-8 text-gray-500">
-                No orders found matching your criteria.
+                No orders found.
               </TableCell>
             </TableRow>
           )}
