@@ -231,7 +231,7 @@ const BuyerMessages = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[calc(100vh-18rem)]">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 h-[calc(100vh-24rem)]">
       {/* Conversations List */}
       <Card className="md:col-span-1 flex flex-col h-full">
         <CardHeader className="pb-2">

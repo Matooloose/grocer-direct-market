@@ -16,7 +16,7 @@ const FarmerDashboard = () => {
 
   return (
     <PageLayout>
-      <div className="py-8 px-4 md:px-8">
+      <div className="py-8 px-4 md:px-8 pb-16">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl font-bold mb-8">Farmer Dashboard</h1>
           
