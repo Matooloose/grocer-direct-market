@@ -1,34 +1,9 @@
 
 import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
-import { useLocation } from 'react-router-dom';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  const location = useLocation();
-  
-  // Don't show footer on the farmer dashboard page or make it display differently
-  const isOnFarmerDashboard = location.pathname === '/farmer';
-  
-  if (isOnFarmerDashboard) {
-    return (
-      <footer className="bg-gray-100 py-4 mt-8">
-        <div className="market-container">
-          <div className="border-t border-gray-200 pt-4">
-            <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-sm text-gray-600">
-                &copy; {currentYear} GrocerDirect. All rights reserved.
-              </p>
-              <div className="flex space-x-4 mt-2 md:mt-0">
-                <Link to="/privacy" className="text-sm text-gray-600 hover:text-market-primary">Privacy Policy</Link>
-                <Link to="/terms" className="text-sm text-gray-600 hover:text-market-primary">Terms of Service</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    );
-  }
 
   return (
     <footer className="bg-gray-100 pt-12 pb-8">
