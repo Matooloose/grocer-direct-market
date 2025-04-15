@@ -127,7 +127,7 @@ const mockConversations: Conversation[] = [
         id: 'msg6',
         from: 'buyer',
         userName: 'Michael Brown',
-        content: 'Hello, I'm interested in your organic carrots. Do you sell organic tomatoes as well?',
+        content: "Hello, I'm interested in your organic carrots. Do you sell organic tomatoes as well?",
         timestamp: new Date('2023-06-08T09:15:00'),
         isRead: false,
       },
