@@ -14,6 +14,7 @@ import AdminGalleryPage from "./pages/AdminGalleryPage";
 import FarmerDashboard from "./pages/FarmerDashboard";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
+import MathGamePage from "./pages/MathGamePage";
 import NotFound from "./pages/NotFound";
 
 // Create a client
@@ -36,6 +37,7 @@ const App = () => (
             <Route path="/farmer" element={<FarmerDashboard />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/math-game" element={<MathGamePage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

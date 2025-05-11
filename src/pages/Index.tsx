@@ -8,7 +8,7 @@ import FarmerHighlight from '@/components/home/FarmerHighlight';
 import Testimonials from '@/components/home/Testimonials';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Images } from 'lucide-react';
+import { ShoppingCart, Images, Calculator } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -48,6 +48,18 @@ const Index = () => {
               <Link to="/gallery">
                 <Images className="h-5 w-5 mr-2" />
                 Image Gallery
+              </Link>
+            </Button>
+            
+            <Button
+              asChild
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white/10"
+            >
+              <Link to="/math-game">
+                <Calculator className="h-5 w-5 mr-2" />
+                Math Game
               </Link>
             </Button>
           </div>
