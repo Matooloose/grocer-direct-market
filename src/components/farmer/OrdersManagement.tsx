@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Search, Filter, Eye, Clock, CheckCircle, Package, Truck, XCircle } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -389,16 +388,16 @@ const OrderDetailDialog = ({ order, onUpdateStatus }: OrderDetailDialogProps) =>
                       </div>
                     </div>
                   </TableCell>
-                  <TableCell>${item.product.price.toFixed(2)}</TableCell>
+                  <TableCell>R{item.product.price.toFixed(2)}</TableCell>
                   <TableCell>{item.quantity}</TableCell>
                   <TableCell className="text-right font-medium">
-                    ${(item.product.price * item.quantity).toFixed(2)}
+                    R{(item.product.price * item.quantity).toFixed(2)}
                   </TableCell>
                 </TableRow>
               ))}
               <TableRow>
                 <TableCell colSpan={3} className="text-right font-medium">Total</TableCell>
-                <TableCell className="text-right font-bold">${order.total.toFixed(2)}</TableCell>
+                <TableCell className="text-right font-bold">R{order.total.toFixed(2)}</TableCell>
               </TableRow>
             </TableBody>
           </Table>
@@ -658,7 +657,7 @@ const OrdersTable = ({ orders, onUpdateStatus }: OrdersTableProps) => {
                   </div>
                 </TableCell>
                 <TableCell>{order.items.length}</TableCell>
-                <TableCell>${order.total.toFixed(2)}</TableCell>
+                <TableCell>R{order.total.toFixed(2)}</TableCell>
                 <TableCell>
                   {getStatusBadge(order.status)}
                 </TableCell>

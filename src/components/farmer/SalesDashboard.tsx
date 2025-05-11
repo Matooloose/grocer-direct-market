@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -153,7 +152,7 @@ const SalesDashboard = () => {
             <CardTitle className="text-sm text-gray-500">Revenue</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${totalSales.toLocaleString()}</div>
+            <div className="text-2xl font-bold">R{totalSales.toLocaleString()}</div>
             <div className="flex items-center mt-1 text-green-600 text-sm">
               <TrendingUp className="h-4 w-4 mr-1" />
               <span>12.5% increase</span>
@@ -179,7 +178,7 @@ const SalesDashboard = () => {
             <CardTitle className="text-sm text-gray-500">Avg. Order Value</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">${averageOrderValue}</div>
+            <div className="text-2xl font-bold">R{averageOrderValue}</div>
             <div className="flex items-center mt-1 text-green-600 text-sm">
               <TrendingUp className="h-4 w-4 mr-1" />
               <span>3.7% increase</span>
@@ -299,7 +298,7 @@ const SalesDashboard = () => {
                     <TableCell>
                       <div className="flex items-center">
                         <DollarSign className="h-4 w-4 mr-2 text-gray-400" />
-                        ${product.revenue.toFixed(2)}
+                        R{product.revenue.toFixed(2)}
                       </div>
                     </TableCell>
                     <TableCell>

@@ -43,7 +43,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }: CartItemProps) => {
         </Link>
         <p className="text-sm text-gray-500 mt-1">Sold by: {product.farmer.name}</p>
         <div className="mt-2 flex items-center">
-          <p className="font-medium text-market-primary">${product.price.toFixed(2)}</p>
+          <p className="font-medium text-market-primary">R{product.price.toFixed(2)}</p>
           <span className="mx-2 text-gray-400">×</span>
           <div className="flex items-center">
             <Button 
@@ -80,7 +80,7 @@ const CartItem = ({ item, onUpdateQuantity, onRemove }: CartItemProps) => {
           </Button>
         </div>
         <div className="text-right">
-          <p className="font-semibold">${(product.price * quantity).toFixed(2)}</p>
+          <p className="font-semibold">R{(product.price * quantity).toFixed(2)}</p>
           <Button 
             variant="ghost" 
             size="sm" 

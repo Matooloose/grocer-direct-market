@@ -209,7 +209,7 @@ const ProductManagement = () => {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <span className="font-medium">${product.price.toFixed(2)}</span>
+                        <span className="font-medium">R{product.price.toFixed(2)}</span>
                         <span className="text-gray-500 text-xs">/{product.unit}</span>
                       </TableCell>
                       <TableCell>
