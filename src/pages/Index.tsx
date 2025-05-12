@@ -11,6 +11,8 @@ import { Link } from 'react-router-dom';
 import { ShoppingCart, Images, Calculator } from 'lucide-react';
 
 const Index = () => {
+  console.log("Index page is rendering"); // Add a console log to help debug
+  
   return (
     <PageLayout>
       <Hero />

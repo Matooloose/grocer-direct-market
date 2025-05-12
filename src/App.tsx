@@ -20,6 +20,9 @@ import NotFound from "./pages/NotFound";
 // Create a client
 const queryClient = new QueryClient();
 
+// Add console log for debugging
+console.log("App component is initializing");
+
 const App = () => (
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
