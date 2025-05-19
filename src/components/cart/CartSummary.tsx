@@ -21,18 +21,18 @@ const CartSummary = ({ items, onCheckout }: CartSummaryProps) => {
       <div className="space-y-3">
         <div className="flex justify-between">
           <span className="text-gray-600">Subtotal</span>
-          <span className="font-medium">R{subtotal.toFixed(2)}</span>
+          <span className="font-medium">${subtotal.toFixed(2)}</span>
         </div>
         
         <div className="flex justify-between">
           <span className="text-gray-600">Delivery Fee</span>
-          <span className="font-medium">R{deliveryFee.toFixed(2)}</span>
+          <span className="font-medium">${deliveryFee.toFixed(2)}</span>
         </div>
         
         <div className="border-t border-gray-200 pt-3 mt-3">
           <div className="flex justify-between font-semibold">
             <span>Total</span>
-            <span className="text-market-primary">R{total.toFixed(2)}</span>
+            <span className="text-market-primary">${total.toFixed(2)}</span>
           </div>
         </div>
       </div>

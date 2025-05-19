@@ -18,9 +18,8 @@ import {
   PaginationPrevious,
 } from '@/components/ui/pagination';
 import { Button } from '@/components/ui/button';
-import { Edit, Trash, Eye, ImageIcon } from 'lucide-react';
+import { Edit, Trash, Eye } from 'lucide-react';
 import { Product } from '@/types/models';
-import { Link } from 'react-router-dom';
 
 interface ProductsTableProps {
   products: Product[];
@@ -52,15 +51,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products, searchQuery }) 
           <CardTitle>Product Management</CardTitle>
           <CardDescription>View and manage all products</CardDescription>
         </div>
-        <div className="flex space-x-2">
-          <Button className="bg-market-primary hover:bg-market-primary/90">Add Product</Button>
-          <Button variant="outline" asChild>
-            <Link to="/admin/images">
-              <ImageIcon className="mr-2 h-4 w-4" />
-              Manage Images
-            </Link>
-          </Button>
-        </div>
+        <Button className="bg-market-primary hover:bg-market-primary/90">Add Product</Button>
       </CardHeader>
       <CardContent>
         {currentProducts.length === 0 ? (
@@ -96,7 +87,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products, searchQuery }) 
                       </TableCell>
                       <TableCell className="font-medium">{product.name}</TableCell>
                       <TableCell>{product.farmer.name}</TableCell>
-                      <TableCell>R{product.price.toFixed(2)}</TableCell>
+                      <TableCell>${product.price.toFixed(2)}</TableCell>
                       <TableCell>
                         <span className={`px-2 py-1 text-xs rounded-full ${
                           product.quantity > 20 ? 'bg-green-100 text-green-800' : 

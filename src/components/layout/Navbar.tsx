@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
-import { Search, ShoppingCart, Menu, X, User, Brackets, ArrowLeft, Tractor } from "lucide-react";
+import { Search, ShoppingCart, Menu, X, User, Brackets, ArrowLeft } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -83,15 +83,9 @@ const Navbar = () => {
                   <DropdownMenuItem>
                     <Link to="/orders" className="w-full">Orders</Link>
                   </DropdownMenuItem>
-                  {/* Add admin and farmer links */}
+                  {/* Add admin link if user is admin */}
                   <DropdownMenuItem>
                     <Link to="/admin" className="w-full">Admin Dashboard</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Link to="/farmer" className="w-full flex items-center">
-                      <Tractor className="h-4 w-4 mr-2" />
-                      Farmer Dashboard
-                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={() => setIsLoggedIn(false)}>
@@ -149,10 +143,6 @@ const Navbar = () => {
                     <Link to="/profile" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>My Profile</Link>
                     <Link to="/orders" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>My Orders</Link>
                     <Link to="/admin" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Admin Dashboard</Link>
-                    <Link to="/farmer" className="text-gray-700 hover:text-market-primary font-medium py-2 flex items-center" onClick={toggleMenu}>
-                      <Tractor className="h-4 w-4 mr-2" />
-                      Farmer Dashboard
-                    </Link>
                     <Button variant="outline" className="w-full" onClick={() => {
                       setIsLoggedIn(false);
                       toggleMenu();
