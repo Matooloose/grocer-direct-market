@@ -14,13 +14,12 @@ import {
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Replace with actual auth state later
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Mock data for cart items count - replace with actual cart state later
   const cartItemsCount = 3;
 
   return (
@@ -45,9 +44,6 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-gray-700 hover:text-market-primary font-medium">Home</Link>
-            <Link to="/products" className="text-gray-700 hover:text-market-primary font-medium">Products</Link>
-            <Link to="/about" className="text-gray-700 hover:text-market-primary font-medium">About</Link>
-            <Link to="/contact" className="text-gray-700 hover:text-market-primary font-medium">Contact</Link>
           </div>
 
           {/* Search, Cart, User Actions - Desktop */}
@@ -56,16 +52,14 @@ const Navbar = () => {
               <Search className="h-5 w-5" />
             </Button>
             
-            <Link to="/cart" className="relative">
-              <Button variant="outline" size="icon" className="rounded-full">
-                <ShoppingCart className="h-5 w-5" />
-                {cartItemsCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-market-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                    {cartItemsCount}
-                  </span>
-                )}
-              </Button>
-            </Link>
+            <Button variant="outline" size="icon" className="rounded-full">
+              <ShoppingCart className="h-5 w-5" />
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-market-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartItemsCount}
+                </span>
+              )}
+            </Button>
             
             {isLoggedIn ? (
               <DropdownMenu>
@@ -78,13 +72,6 @@ const Navbar = () => {
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <Link to="/profile" className="w-full">Profile</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <Link to="/orders" className="w-full">Orders</Link>
-                  </DropdownMenuItem>
-                  {/* Add admin link if user is admin */}
-                  <DropdownMenuItem>
                     <Link to="/admin" className="w-full">Admin Dashboard</Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
@@ -95,24 +82,26 @@ const Navbar = () => {
               </DropdownMenu>
             ) : (
               <div className="flex space-x-2">
-                <Button variant="ghost" onClick={() => setIsLoggedIn(true)}>Login</Button>
-                <Button className="bg-market-primary hover:bg-market-primary/90">Register</Button>
+                <Button variant="ghost" asChild>
+                  <Link to="/login">Login</Link>
+                </Button>
+                <Button className="bg-market-primary hover:bg-market-primary/90" asChild>
+                  <Link to="/register">Register</Link>
+                </Button>
               </div>
             )}
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
-            <Link to="/cart" className="relative">
-              <Button variant="outline" size="icon" className="rounded-full">
-                <ShoppingCart className="h-5 w-5" />
-                {cartItemsCount > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-market-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                    {cartItemsCount}
-                  </span>
-                )}
-              </Button>
-            </Link>
+            <Button variant="outline" size="icon" className="rounded-full">
+              <ShoppingCart className="h-5 w-5" />
+              {cartItemsCount > 0 && (
+                <span className="absolute -top-1 -right-1 bg-market-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  {cartItemsCount}
+                </span>
+              )}
+            </Button>
             <Button variant="ghost" size="icon" onClick={toggleMenu}>
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -124,9 +113,6 @@ const Navbar = () => {
           <div className="md:hidden pt-4 pb-3 border-t mt-3 animate-fade-in">
             <div className="flex flex-col space-y-3">
               <Link to="/" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Home</Link>
-              <Link to="/products" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Products</Link>
-              <Link to="/about" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>About</Link>
-              <Link to="/contact" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Contact</Link>
               
               <div className="relative pt-2">
                 <div className="flex items-center border rounded-lg overflow-hidden">
@@ -140,8 +126,6 @@ const Navbar = () => {
               <div className="pt-2 flex flex-col space-y-2">
                 {isLoggedIn ? (
                   <>
-                    <Link to="/profile" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>My Profile</Link>
-                    <Link to="/orders" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>My Orders</Link>
                     <Link to="/admin" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Admin Dashboard</Link>
                     <Button variant="outline" className="w-full" onClick={() => {
                       setIsLoggedIn(false);
@@ -150,11 +134,12 @@ const Navbar = () => {
                   </>
                 ) : (
                   <div className="flex flex-col space-y-2">
-                    <Button variant="outline" className="w-full" onClick={() => {
-                      setIsLoggedIn(true);
-                      toggleMenu();
-                    }}>Login</Button>
-                    <Button className="w-full bg-market-primary hover:bg-market-primary/90">Register</Button>
+                    <Button variant="outline" className="w-full" asChild onClick={toggleMenu}>
+                      <Link to="/login">Login</Link>
+                    </Button>
+                    <Button className="w-full bg-market-primary hover:bg-market-primary/90" asChild onClick={toggleMenu}>
+                      <Link to="/register">Register</Link>
+                    </Button>
                   </div>
                 )}
               </div>

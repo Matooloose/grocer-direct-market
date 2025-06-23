@@ -8,12 +8,12 @@ const Footer = () => {
   return (
     <footer className="bg-gray-100 pt-12 pb-8">
       <div className="market-container">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand and description */}
-          <div className="col-span-1 md:col-span-1">
+          <div className="col-span-1">
             <Link to="/" className="flex items-center">
-              <span className="text-market-primary text-xl font-bold font-poppins">Grocer</span>
-              <span className="text-market-secondary text-xl font-bold font-poppins">Direct</span>
+              <span className="text-market-primary text-xl font-bold font-poppins">farmers</span>
+              <span className="text-market-dark text-xl font-bold font-poppins">bracket</span>
             </Link>
             <p className="mt-4 text-gray-600 text-sm">
               Connecting farmers directly with consumers for fresher food and fairer prices.
@@ -36,38 +36,10 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/products" className="text-gray-600 hover:text-market-primary text-sm">Products</Link>
+                <Link to="/" className="text-gray-600 hover:text-market-primary text-sm">Home</Link>
               </li>
               <li>
-                <Link to="/about" className="text-gray-600 hover:text-market-primary text-sm">About Us</Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-600 hover:text-market-primary text-sm">Contact</Link>
-              </li>
-              <li>
-                <Link to="/blog" className="text-gray-600 hover:text-market-primary text-sm">Blog</Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Categories */}
-          <div className="col-span-1">
-            <h3 className="text-lg font-semibold mb-4">Categories</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/products/vegetables" className="text-gray-600 hover:text-market-primary text-sm">Vegetables</Link>
-              </li>
-              <li>
-                <Link to="/products/fruits" className="text-gray-600 hover:text-market-primary text-sm">Fruits</Link>
-              </li>
-              <li>
-                <Link to="/products/dairy" className="text-gray-600 hover:text-market-primary text-sm">Dairy</Link>
-              </li>
-              <li>
-                <Link to="/products/meat" className="text-gray-600 hover:text-market-primary text-sm">Meat</Link>
-              </li>
-              <li>
-                <Link to="/products/grains" className="text-gray-600 hover:text-market-primary text-sm">Grains</Link>
+                <Link to="/admin" className="text-gray-600 hover:text-market-primary text-sm">Admin</Link>
               </li>
             </ul>
           </div>
@@ -78,7 +50,7 @@ const Footer = () => {
             <address className="not-italic text-gray-600 text-sm">
               <p>1234 Farm Road</p>
               <p>Harvest Valley, CA 90210</p>
-              <p className="mt-3">Email: info@grocerdirect.com</p>
+              <p className="mt-3">Email: info@farmersbracket.com</p>
               <p>Phone: (555) 123-4567</p>
             </address>
           </div>
@@ -87,12 +59,8 @@ const Footer = () => {
         <div className="border-t border-gray-200 mt-10 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-sm text-gray-600">
-              &copy; {currentYear} GrocerDirect. All rights reserved.
+              &copy; {currentYear} farmersbracket. All rights reserved.
             </p>
-            <div className="flex space-x-4 mt-4 md:mt-0">
-              <Link to="/privacy" className="text-sm text-gray-600 hover:text-market-primary">Privacy Policy</Link>
-              <Link to="/terms" className="text-sm text-gray-600 hover:text-market-primary">Terms of Service</Link>
-            </div>
           </div>
         </div>
       </div>
