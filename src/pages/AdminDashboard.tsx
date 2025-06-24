@@ -10,16 +10,13 @@ import {
   Package, 
   ArrowUpRight, 
   BarChart as BarChartIcon,
-  Search,
-  TrendingUp,
-  AlertTriangle
+  Search
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import DashboardOverview from '@/components/admin/DashboardOverview';
 import OrdersTable from '@/components/admin/OrdersTable';
 import ProductsTable from '@/components/admin/ProductsTable';
 import UsersTable from '@/components/admin/UsersTable';
-import AdminAnalytics from '@/components/admin/AdminAnalytics';
 import { Input } from '@/components/ui/input';
 
 const AdminDashboard = () => {
@@ -33,40 +30,35 @@ const AdminDashboard = () => {
   
   const pendingOrders = mockOrders.filter(order => order.status === 'pending').length;
   const processingOrders = mockOrders.filter(order => order.status === 'processing').length;
-  const lowStockProducts = mockProducts.filter(p => p.quantity <= 5).length;
   
   const summaryCards = [
     {
       title: "Total Revenue",
       value: `R${totalRevenue.toFixed(2)}`,
-      description: "12% increase from last month",
-      icon: <TrendingUp className="h-5 w-5 text-green-500" />,
-      iconBg: "bg-green-50",
-      trend: "+12%"
+      description: "12% increase",
+      icon: <ShoppingCart className="h-5 w-5 text-market-primary" />,
+      iconBg: "bg-market-primary/10",
     },
     {
       title: "Total Orders",
       value: totalOrders,
-      description: `${pendingOrders} pending • ${processingOrders} processing`,
-      icon: <ShoppingCart className="h-5 w-5 text-blue-500" />,
+      description: `Pending: ${pendingOrders} • Processing: ${processingOrders}`,
+      icon: <Package className="h-5 w-5 text-blue-500" />,
       iconBg: "bg-blue-50",
-      trend: "+8%"
     },
     {
-      title: "Active Users",
+      title: "Total Users",
       value: totalUsers,
-      description: "18 new users this week",
+      description: "8% increase",
       icon: <Users className="h-5 w-5 text-purple-500" />,
       iconBg: "bg-purple-50",
-      trend: "+15%"
     },
     {
-      title: "Products",
+      title: "Total Products",
       value: totalProducts,
-      description: `${lowStockProducts} low stock alerts`,
+      description: `${mockProducts.filter(p => p.isOrganic).length} organic products`,
       icon: <Package className="h-5 w-5 text-orange-500" />,
       iconBg: "bg-orange-50",
-      alert: lowStockProducts > 0
     },
   ];
   
@@ -74,12 +66,12 @@ const AdminDashboard = () => {
     <PageLayout>
       <div className="py-8">
         <div className="market-container">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
             <div>
               <h1 className="text-2xl md:text-3xl font-bold mb-2">Admin Dashboard</h1>
-              <p className="text-gray-600">Manage your marketplace and monitor performance</p>
+              <p className="text-gray-600">Manage your marketplace and view analytics</p>
             </div>
-            <div className="mt-4 md:mt-0 flex gap-2">
+            <div className="mt-4 md:mt-0">
               <div className="relative max-w-xs md:max-w-md">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                   <Search className="h-4 w-4 text-gray-400" />
@@ -92,33 +84,24 @@ const AdminDashboard = () => {
                   onChange={(e) => setSearchQuery(e.target.value)}
                 />
               </div>
-              <Button className="bg-market-primary hover:bg-market-primary/90">
-                <BarChartIcon className="h-4 w-4 mr-2" />
-                Export Report
-              </Button>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
             {summaryCards.map((card, index) => (
-              <Card key={index} className="relative">
+              <Card key={index}>
                 <CardHeader className="pb-2">
-                  <div className="flex items-center justify-between">
-                    <CardDescription>{card.title}</CardDescription>
-                    {card.alert && (
-                      <AlertTriangle className="h-4 w-4 text-orange-500" />
-                    )}
-                  </div>
+                  <CardDescription>{card.title}</CardDescription>
                   <CardTitle className="text-2xl">{card.value}</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex justify-between items-center">
-                    <div className="flex items-center text-sm text-gray-500">
-                      {card.trend && (
+                    <span className="text-sm text-gray-500 flex items-center">
+                      {card.title === "Total Revenue" && (
                         <ArrowUpRight className="h-4 w-4 mr-1 text-green-500" />
                       )}
-                      <span>{card.description}</span>
-                    </div>
+                      {card.description}
+                    </span>
                     <div className={`p-2 rounded-full ${card.iconBg}`}>
                       {card.icon}
                     </div>
@@ -135,12 +118,11 @@ const AdminDashboard = () => {
             className="space-y-6"
           >
             <div className="bg-white rounded-lg shadow-sm p-2">
-              <TabsList className="grid grid-cols-2 md:grid-cols-5 gap-2">
+              <TabsList className="grid grid-cols-2 md:grid-cols-4 gap-2">
                 <TabsTrigger value="overview">Overview</TabsTrigger>
                 <TabsTrigger value="orders">Orders</TabsTrigger>
                 <TabsTrigger value="products">Products</TabsTrigger>
                 <TabsTrigger value="users">Users</TabsTrigger>
-                <TabsTrigger value="analytics">Analytics</TabsTrigger>
               </TabsList>
             </div>
             
@@ -169,10 +151,6 @@ const AdminDashboard = () => {
             
             <TabsContent value="users">
               <UsersTable users={mockUsers} searchQuery={searchQuery} />
-            </TabsContent>
-
-            <TabsContent value="analytics">
-              <AdminAnalytics />
             </TabsContent>
           </Tabs>
         </div>

@@ -1,42 +1,40 @@
 
 import PageLayout from '@/components/layout/PageLayout';
-import FarmerStats from '@/components/farmer/FarmerStats';
-import RecentOrders from '@/components/farmer/RecentOrders';
-import ProductManagement from '@/components/farmer/ProductManagement';
-import SalesChart from '@/components/farmer/SalesChart';
+import Hero from '@/components/home/Hero';
+import FeaturedProducts from '@/components/home/FeaturedProducts';
+import CategoryHighlights from '@/components/home/CategoryHighlights';
+import HowItWorks from '@/components/home/HowItWorks';
+import FarmerHighlight from '@/components/home/FarmerHighlight';
+import Testimonials from '@/components/home/Testimonials';
 import { Button } from '@/components/ui/button';
-import { Plus, Package, TrendingUp, Users, ShoppingCart } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
     <PageLayout>
-      <div className="py-8">
-        <div className="market-container">
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
-            <div>
-              <h1 className="text-2xl md:text-3xl font-bold mb-2">Farmer Dashboard</h1>
-              <p className="text-gray-600">Manage your products and track your sales</p>
-            </div>
-            <div className="mt-4 md:mt-0 flex gap-2">
-              <Button className="bg-market-primary hover:bg-market-primary/90">
-                <Plus className="h-4 w-4 mr-2" />
-                Add Product
-              </Button>
-            </div>
-          </div>
-
-          <FarmerStats />
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-6">
-            <SalesChart />
-            <RecentOrders />
-          </div>
-
-          <div className="mt-6">
-            <ProductManagement />
-          </div>
+      <Hero />
+      <FeaturedProducts />
+      <CategoryHighlights />
+      <HowItWorks />
+      <FarmerHighlight />
+      <Testimonials />
+      
+      {/* Call to Action */}
+      <section className="py-16 bg-market-primary">
+        <div className="market-container text-center">
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">Ready to start shopping?</h2>
+          <p className="text-white/90 max-w-2xl mx-auto mb-8">
+            Browse our selection of fresh, locally-sourced products and support farmers in your community.
+          </p>
+          <Button
+            asChild
+            size="lg"
+            className="bg-white text-market-primary hover:bg-white/90"
+          >
+            <Link to="/products">Shop Now</Link>
+          </Button>
         </div>
-      </div>
+      </section>
     </PageLayout>
   );
 };
