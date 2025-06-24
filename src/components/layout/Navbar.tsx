@@ -65,35 +65,20 @@ const Navbar = () => {
               </Link>
             </Button>
             
-            {isLoggedIn ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" size="icon" className="rounded-full">
-                    <User className="h-5 w-5" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <Link to="/admin" className="w-full">Admin Dashboard</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={() => setIsLoggedIn(false)}>
-                    Logout
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <div className="flex space-x-2">
-                <Button variant="ghost" asChild>
-                  <Link to="/login">Login</Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="outline" size="icon" className="rounded-full">
+                  <User className="h-5 w-5" />
                 </Button>
-                <Button className="bg-market-primary hover:bg-market-primary/90" asChild>
-                  <Link to="/register">Register</Link>
-                </Button>
-              </div>
-            )}
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuLabel>Account</DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <Link to="/admin" className="w-full">Admin Dashboard</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile menu button */}
@@ -132,24 +117,7 @@ const Navbar = () => {
               </div>
               
               <div className="pt-2 flex flex-col space-y-2">
-                {isLoggedIn ? (
-                  <>
-                    <Link to="/admin" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Admin Dashboard</Link>
-                    <Button variant="outline" className="w-full" onClick={() => {
-                      setIsLoggedIn(false);
-                      toggleMenu();
-                    }}>Logout</Button>
-                  </>
-                ) : (
-                  <div className="flex flex-col space-y-2">
-                    <Button variant="outline" className="w-full" asChild onClick={toggleMenu}>
-                      <Link to="/login">Login</Link>
-                    </Button>
-                    <Button className="w-full bg-market-primary hover:bg-market-primary/90" asChild onClick={toggleMenu}>
-                      <Link to="/register">Register</Link>
-                    </Button>
-                  </div>
-                )}
+                <Link to="/admin" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Admin Dashboard</Link>
               </div>
             </div>
           </div>
