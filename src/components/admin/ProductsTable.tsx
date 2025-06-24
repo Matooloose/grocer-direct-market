@@ -87,7 +87,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ products, searchQuery }) 
                       </TableCell>
                       <TableCell className="font-medium">{product.name}</TableCell>
                       <TableCell>{product.farmer.name}</TableCell>
-                      <TableCell>${product.price.toFixed(2)}</TableCell>
+                      <TableCell>R{product.price.toFixed(2)}</TableCell>
                       <TableCell>
                         <span className={`px-2 py-1 text-xs rounded-full ${
                           product.quantity > 20 ? 'bg-green-100 text-green-800' : 

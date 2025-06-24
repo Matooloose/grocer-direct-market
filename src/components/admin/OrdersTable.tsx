@@ -91,13 +91,13 @@ const OrdersTable: React.FC<OrdersTableProps> = ({ orders, searchQuery }) => {
                     <TableRow key={order.id}>
                       <TableCell className="font-medium">#{order.id}</TableCell>
                       <TableCell>{order.user.name}</TableCell>
-                      <TableCell>{new Date(order.date).toLocaleDateString()}</TableCell>
+                      <TableCell>{new Date(order.createdAt).toLocaleDateString()}</TableCell>
                       <TableCell>
                         <span className={`px-2 py-1 text-xs rounded-full ${getStatusBadgeClass(order.status)}`}>
                           {order.status.charAt(0).toUpperCase() + order.status.slice(1)}
                         </span>
                       </TableCell>
-                      <TableCell className="text-right">${order.total.toFixed(2)}</TableCell>
+                      <TableCell className="text-right">R{order.total.toFixed(2)}</TableCell>
                       <TableCell className="text-right">
                         <div className="flex justify-end space-x-2">
                           <Button variant="ghost" size="icon">

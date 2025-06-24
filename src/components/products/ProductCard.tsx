@@ -45,7 +45,7 @@ const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
         </Link>
         <div className="flex justify-between items-center mt-2">
           <div className="flex items-baseline">
-            <span className="text-lg font-bold text-market-primary">${price.toFixed(2)}</span>
+            <span className="text-lg font-bold text-market-primary">R{price.toFixed(2)}</span>
             <span className="ml-1 text-gray-500 text-sm">/ {unit}</span>
           </div>
         </div>

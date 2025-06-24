@@ -34,7 +34,7 @@ const AdminDashboard = () => {
   const summaryCards = [
     {
       title: "Total Revenue",
-      value: `$${totalRevenue.toFixed(2)}`,
+      value: `R${totalRevenue.toFixed(2)}`,
       description: "12% increase",
       icon: <ShoppingCart className="h-5 w-5 text-market-primary" />,
       iconBg: "bg-market-primary/10",
