@@ -29,8 +29,8 @@ const registerSchema = z.object({
     .regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/, {
       message: 'Password must contain at least one uppercase letter, one lowercase letter, and one number',
     }),
-  acceptTerms: z.literal(true, {
-    errorMap: () => ({ message: 'You must accept the terms and conditions' }),
+  acceptTerms: z.boolean().refine(val => val === true, {
+    message: 'You must accept the terms and conditions',
   }),
 });
 

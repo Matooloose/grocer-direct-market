@@ -44,6 +44,8 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
             <Link to="/" className="text-gray-700 hover:text-market-primary font-medium">Home</Link>
+            <Link to="/about" className="text-gray-700 hover:text-market-primary font-medium">About</Link>
+            <Link to="/contact" className="text-gray-700 hover:text-market-primary font-medium">Contact</Link>
           </div>
 
           {/* Search, Cart, User Actions - Desktop */}
@@ -52,13 +54,15 @@ const Navbar = () => {
               <Search className="h-5 w-5" />
             </Button>
             
-            <Button variant="outline" size="icon" className="rounded-full">
-              <ShoppingCart className="h-5 w-5" />
-              {cartItemsCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-market-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                  {cartItemsCount}
-                </span>
-              )}
+            <Button variant="outline" size="icon" className="rounded-full" asChild>
+              <Link to="/cart">
+                <ShoppingCart className="h-5 w-5" />
+                {cartItemsCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-market-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                    {cartItemsCount}
+                  </span>
+                )}
+              </Link>
             </Button>
             
             {isLoggedIn ? (
@@ -94,13 +98,15 @@ const Navbar = () => {
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center space-x-4">
-            <Button variant="outline" size="icon" className="rounded-full">
-              <ShoppingCart className="h-5 w-5" />
-              {cartItemsCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-market-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
-                  {cartItemsCount}
-                </span>
-              )}
+            <Button variant="outline" size="icon" className="rounded-full" asChild>
+              <Link to="/cart">
+                <ShoppingCart className="h-5 w-5" />
+                {cartItemsCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-market-primary text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                    {cartItemsCount}
+                  </span>
+                )}
+              </Link>
             </Button>
             <Button variant="ghost" size="icon" onClick={toggleMenu}>
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -113,6 +119,8 @@ const Navbar = () => {
           <div className="md:hidden pt-4 pb-3 border-t mt-3 animate-fade-in">
             <div className="flex flex-col space-y-3">
               <Link to="/" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Home</Link>
+              <Link to="/about" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>About</Link>
+              <Link to="/contact" className="text-gray-700 hover:text-market-primary font-medium py-2" onClick={toggleMenu}>Contact</Link>
               
               <div className="relative pt-2">
                 <div className="flex items-center border rounded-lg overflow-hidden">
